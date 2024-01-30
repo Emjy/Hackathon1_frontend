@@ -9,16 +9,21 @@
 <body>
 <div id="header">
     <div id="logo">
-        <h1><a href="">TICKETHACK</a></h1>
-
+    <a href="">
+        <h1 id="logo-titre">TICKETHACK</h1>
+    </a>
     </div>
     <div id="banniere">
         <div class="user-btn">
-            <p><a href="">Cart</a></p>
+            <a href="">
+                <p class="ban-elem">Cart</p>
+            </a>
 
         </div>
         <div class="user-btn">
-            <p><a href="">Book</a></p>
+            <a href="">
+                <p class="ban-elem">Book</p>
+            </a>
 
         </div>
     </div>
@@ -41,12 +46,12 @@
         <div id="inputs" class="trip-card">
 
             <div id="trajet">
-                <input class="input" type="text" placeholder="Depart">
-                <input class="input" type="text" placeholder="Arrivée">
+                <input class="input" id="input-dep" type="text" placeholder="Depart">
+                <input class="input" id="input-arr" type="text" placeholder="Arrivée">
             </div>
 
             <div id="date">
-                <input class="input" type="date" placeholder="Date">
+                <input class="input" id="input-date" type="date" placeholder="Date">
             </div>
 
             <button id="search-button">Search</button>
@@ -55,13 +60,13 @@
         </div>
 
         <div id="response" class="trip-card">
-            <img id="train-img" src="./images/train.png" alt="train">
+            <img class="train-img" src="./images/train.png" alt="train" />
             <h6>It's time to book your future trip</h6>
         </div>
 
     </div>
 
 </div>
-
+<script src="script.js"></script>
 </body>
 </html>
