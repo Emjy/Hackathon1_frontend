@@ -6,15 +6,14 @@ let pressSearchButton = document.querySelector("#search-button")
 
 pressSearchButton.addEventListener('click', () => {
 
-    let departure = document.querySelector("#input-dep").value;
-    let arrival = document.querySelector("#input-arr").value;
+    let departure = capitalizeFirstLetter(document.querySelector("#input-dep").value).trim();
+    let arrival = capitalizeFirstLetter(document.querySelector("#input-arr").value).trim();
     let dateInput = document.querySelector("#input-date").value;
 
     fetch(`http://localhost:3000/trips/${departure}/${arrival}/${dateInput}`)
         .then(response => response.json())
         .then((trips) => {
             visualiseTrips(trips)
-        }).then((trips) => {
             addTripToCart(trips)
         })
 });
@@ -25,10 +24,12 @@ function visualiseTrips(trips) {
     document.querySelector("#response").innerHTML = '';
 
     console.log(trips.result)
-
     if (trips.result) {
         for (let i in trips.trips) {
-            let tripHour = `${new Date(trips.trips[i].date).getHours()}h${new Date(trips.trips[i].date).getMinutes()}`
+
+            const datefmt = new Date(trips.trips[i].date);
+            let tripHour = `${datefmt.getHours()}h${(datefmt.getMinutes() < 10 ? '0' : '') + datefmt.getMinutes()}`; 
+
             document.querySelector("#response").innerHTML += `
                 <div class="voyage">
                 <div class="dep-arr">${trips.trips[i].departure} > ${trips.trips[i].arrival}</div>
@@ -48,13 +49,24 @@ function visualiseTrips(trips) {
 }
 
 
-
-function addTripToCart() {
+function addTripToCart(trips) {
 
     for (let i = 0; i < document.querySelectorAll('.book-button').length; i++) {
         document.querySelectorAll('.book-button')[i].addEventListener('click', () => {
-          
+            console.log("Button pressed")
+            console.log(trips.trips[i])
+
+            fetch(`http://localhost:3000/trips/${trips.trips[i]._id}`)
+                .then(response => response.json())
+                .then(() => {
+                    console.log("Trip saved !!")
+                })
+
         });
     }
 
+}
+
+function capitalizeFirstLetter(inputString) {
+    return inputString.trim().charAt(0).toUpperCase() + inputString.slice(1).toLowerCase();
 }
