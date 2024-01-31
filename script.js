@@ -54,9 +54,12 @@ function addTripToCart(trips) {
     for (let i = 0; i < document.querySelectorAll('.book-button').length; i++) {
         document.querySelectorAll('.book-button')[i].addEventListener('click', () => {
             console.log("Button pressed")
-            console.log(trips.trips[i])
+            console.log(trips.trips[i]._id)
 
-            fetch(`http://localhost:3000/trips/${trips.trips[i]._id}`)
+            fetch(`http://localhost:3000/trips/${trips.trips[i]._id}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" }
+            })
                 .then(response => response.json())
                 .then(() => {
                     console.log("Trip saved !!")
@@ -70,3 +73,8 @@ function addTripToCart(trips) {
 function capitalizeFirstLetter(inputString) {
     return inputString.trim().charAt(0).toUpperCase() + inputString.slice(1).toLowerCase();
 }
+
+
+// Récupération des données saisies 
+
+// let pressSearchButton = document.querySelector("#-button")

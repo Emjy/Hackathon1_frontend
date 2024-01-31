@@ -1,91 +1,128 @@
+* {
+    font-family: 'Raleway', sans-serif;
+    font-variant-ligatures: none;
+}
+
 body {
     height: 100vh;
     width: 100vw;
     margin: 0;
-    background-image: url('./images/background.jpg');
-    background-size: cover;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #E9F9EE;
+}
+
+h1{
+    font-size: 56px;
+}
+
+h3 {
+    font-size: 28px;
 }
 
 a {
     text-decoration: none;
 }
 
-.ban-elem {
-    color: black;
-}
 
-#logo-titre {
-    color: #0ef1c0e9;
-}
+
+/*
+
+/////////////////
+HEADER ---- SETUP 
+/////////////////
+
+*/
+
 #header {
     display: flex;
-    background-color: white;
+    background-color: #E9F9EE;
     width: 100%;
-    height: 80px;
+    height: 6%;
     justify-content: space-between;
     align-items: center;
 }
 
-.title {
-    display: flex;
-    color: white;
-    justify-content: center;
+#logo {
+ padding-left: 40px;
 }
 
-#logo {
-    padding: 20px 40px;
+#logo-titre {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #5621AD;
 }
+
 
 #banniere {
     display: flex;
+    gap: 32px;
+    padding-right: 40px;
 }
 
-.user-btn {
-    display: flex;
-    padding: 20px 40px;
-}
+
+
+/*
+
+///////////////
+HOME ---- SETUP 
+///////////////
+
+*/
 
 #container {
+    width: 100%;
+    height: 94%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-image: url('./images/background.svg');
+    background-size: cover;
 }
+
+.headline {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 80px;
+    color: #131F1D;
+}
+
+.subtitle {
+    margin: 0;
+    font-weight: 600;
+    font-size: 28px;
+    color: #7B8483;
+}
+
 #text-container {
+    padding: 104px 0 104px 104px;
     display: flex;
     flex-direction: column;
-    
-    height: 100px;
-    text-align: center;
-    justify-content: center;
-    padding: 100px 40px;
 }
+
 
 #trip-container {
+    padding: 0 0 0 104px;
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
     text-align: center;
     justify-content: center;
-    gap: 150px;
 }
 
-
-
-#trajet {
+#inputs {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    gap: 8px;
+}
+
+#trajet {
+    width: 100%;
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
 
 }
 
 #date {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    width: 90%;
+    margin-bottom: 48px;
 }
 
 #response {
@@ -96,32 +133,26 @@ a {
 
 
 .input {
-    height: 30px;
-    border-radius: 4px;
-    background-color: #f3efefe9;
+    width: 100%;
+    height: 40px;
+    border-radius: 12px;
+    background-color: white;
     border: none;
-    padding: 8px;
+    padding: 12px;
+
 }
 
-#inputs {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    justify-content: space-around;
-}
 
 
 .trip-card {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     border-radius: 16px;
     height: 450px;
-    width: 350px;
-    background-color: white;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 8px 0px;
 }
+
 
 .train-img {
     max-width: 50%;
@@ -130,43 +161,146 @@ a {
 }
 
 #search-button {
-    background-color: #0ef1c0e9;
-    border-radius: 4px;
-    width: 90%;
+    background-color: #5621AD;
+    border-radius: 12px;
+    width: 100%;
+    height: 64px;
+    border: none;
+    color: #f3efe9;
+        font-size: 18px;
+}
+
+.book-button {
+    background-color: #5621AD;
+    border-radius: 8px;
+    width: 50px;
     height: 30px;
     border: none;
     color: white;
 }
 
-.book-button {
-    background-color: #0ef1c0e9;
-    border-radius: 4px;
-    width: 50px;
-    height: 30px;
-    border: none;
-}
-
 #search-button:hover,
 .book-button:hover {
-    background-color: #29a111e9;
+    background-color: #351070;
     cursor: pointer;
 }
+
+#response {
+    padding: 24px;
+}
+
 .voyage {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ccf0e9e9;
-    width: 90%;
-    border-radius: 4px;
-    font-size: 12px;
-    padding: 16px 8px
+    background-color: #FAFAFA;
+    width: 100%;
+    border-radius: 16px;
+    font-size: 16px;
+    padding: 24px;
 }
-#listOfTrips {
+
+
+/*
+
+///////////////
+BOOK ---- SETUP 
+///////////////
+
+*/
+
+#newContainer {
+    width: 100%;
+    height: 94%;
     display: flex;
-    height: 50%;
-    width: 80%;
-    background-color: white;
-    border-radius: 8px;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+
+#listOfBookings {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+#booking-card {
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    background-color: white;
+    border-radius: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+#text-container-booking {
+    display: flex;
+    flex-direction: column;
+
+    padding: 16px;
+}
+
+#imgTravel {
+    width: 100%;
+    height: 33%;
+    border-radius: 16px;
+    background-image: url('./images/background.jpg');
+    background-size: cover;
+}
+
+#destination-container-booking {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#date-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.label {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.city {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#basket-container {
+    width: 35%;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    background-color: white;
+}
+
+#total-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+#button-close {
+    width: 32px;
+    height: 32px;
+    background-color: #E73F3F;
+    border: none;
+    border-radius: 8px;
+    color: white;
 }
