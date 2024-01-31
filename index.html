@@ -1,72 +1,81 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tickethack</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div id="header">
-    <div id="logo">
-    <a href="./index.html">
-        <h1 id="logo-titre">TICKETHACK</h1>
-    </a>
-    </div>
-    <div id="banniere">
-        <div class="user-btn">
-            <a href="./cart.html">
-                <p class="ban-elem">Cart</p>
-            </a>
 
-        </div>
-        <div class="user-btn">
-            <a href="">
-                <p class="ban-elem">Book</p>
-            </a>
-
-        </div>
-    </div>
-
-</div>
-<div id="container">
-    <div id="text-container">
-        <h1 class="title">
-            Explore the world efortlessly by train !
-        </h1>
-        <p class="title">
-            Compare, book and enjoy cheap prices for train tickets: your journey starts on tickethack!
-        </p>
-
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tickethack</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
 
 
-    <div id="trip-container">
+    <body>
 
-        <div id="inputs" class="trip-card">
+        <div id="header">
 
-            <div id="trajet">
-                <input class="input" id="input-dep" type="text" placeholder="Depart">
-                <input class="input" id="input-arr" type="text" placeholder="Arrivée">
+            <div id="logo">
+                <a href="./index.html">
+                    <p id="logo-titre">Tickethack</p>
+                </a>
             </div>
 
-            <div id="date">
-                <input class="input" id="input-date" type="date" placeholder="Date">
+            <div id="banniere">
+
+                <div class="nav-btn">
+                    <a href="./cart.html">
+                        <p class="ban-elem">Cart</p>
+                    </a>
+
+                </div>
+                <div class="nav-btn">
+                    <a href="./book.html">
+                        <p class="ban-elem">My Bookings</p>
+                    </a>
+                </div>
+
             </div>
 
-            <button id="search-button">Search</button>
+        </div>
 
+
+        <div id="container">
+
+            <div id="text-container">
+                <h1 class="headline">Explore the world 🌍 </br> effortlessly with Tickethack!</h1>
+                <p class="subtitle">Compare, book and enjoy cheap prices for train tickets</p>
+            </div>
+
+
+            <div id="trip-container">
+
+                <div id="inputs" class="trip-card">
+
+                    <div id="trajet">
+                        <input class="input" id="input-dep" type="text" placeholder="Where are you travelling from?">
+                        <input class="input" id="input-arr" type="text" placeholder="Where are you going?">
+                    </div>
+
+                    <div id="date">
+                        <input class="input" id="input-date" type="date" placeholder="Date">
+                    </div>
+
+                    <button id="search-button">Search</button>
+
+                </div>
+
+                <div id="response" class="trip-card">
+                    <img class="train-img" src="./images/train.png" alt="train" />
+                    <h6>It's time to book your future trip</h6>
+                </div>
+
+            </div>
 
         </div>
 
-        <div id="response" class="trip-card">
-            <img class="train-img" src="./images/train.png" alt="train" />
-            <h6>It's time to book your future trip</h6>
-        </div>
-
-    </div>
-
-</div>
-<script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
