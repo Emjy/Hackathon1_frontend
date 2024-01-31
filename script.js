@@ -54,8 +54,8 @@ function addTripToCart(trips) {
     for (let i = 0; i < document.querySelectorAll('.book-button').length; i++) {
         document.querySelectorAll('.book-button')[i].addEventListener('click', () => {
             let counter = document.querySelector('#count').textContent;
-            counter ++;
-            if(counter === 0){
+            counter++;
+            if (counter === 0) {
                 document.querySelector("#count").style.backgroundColor = 'white';
             } else {
                 document.querySelector('#count').innerHTML += `
@@ -70,7 +70,7 @@ function addTripToCart(trips) {
             })
                 .then(response => response.json())
                 .then(() => {
-
+                    console.log('Trip add to cart!')
                 })
         });
     }
