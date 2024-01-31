@@ -45,7 +45,7 @@ function visualiseCart(bookings) {
             `;
     }
 }
-
+ /*
 function upDeleteCart(bookings) {
     for (let i = 0; i < document.querySelectorAll('.button-close').length; i++) {
         document.querySelectorAll('.button-close')[i].addEventListener('click', function () {
@@ -62,4 +62,4 @@ function upDeleteCart(bookings) {
             })
         });
     }
-}
+    */
