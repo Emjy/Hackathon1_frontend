@@ -41,16 +41,22 @@ HEADER ---- SETUP
     align-items: center;
 }
 
+#logo {
+ padding-left: 40px;
+}
+
 #logo-titre {
-    font-size: 24px;
+    font-size: 28px;
+    text-transform: uppercase;
     font-weight: 800;
-    color: #382BC9;
+    color: #5621AD;
 }
 
 
 #banniere {
     display: flex;
     gap: 32px;
+    padding-right: 40px;
 }
 
 
@@ -155,7 +161,7 @@ HOME ---- SETUP
 }
 
 #search-button {
-    background-color: #382BC9;
+    background-color: #5621AD;
     border-radius: 12px;
     width: 100%;
     height: 64px;
@@ -166,7 +172,7 @@ HOME ---- SETUP
 }
 
 .book-button {
-    background-color: #382BC9;
+    background-color: #5621AD;
     border-radius: 8px;
     width: 50px;
     height: 30px;
@@ -176,7 +182,7 @@ HOME ---- SETUP
 
 #search-button:hover,
 .book-button:hover {
-    background-color: #2D23A4;
+    background-color: #351070;
     cursor: pointer;
 }
 
