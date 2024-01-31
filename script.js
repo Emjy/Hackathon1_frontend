@@ -63,9 +63,14 @@ function addTripToCart(trips) {
                 `
             }
             document.querySelector('#count').textContent = String(counter);
-            fetch(`http://localhost:3000/trips/${trips.trips[i]._id}`)
+
+            fetch(`http://localhost:3000/trips/${trips.trips[i]._id}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" }
+            })
                 .then(response => response.json())
                 .then(() => {
+
                 })
         });
     }
