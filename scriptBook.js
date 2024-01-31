@@ -1,12 +1,20 @@
-// Affichage des trajets Bookés 
-
 fetch(`http://localhost:3000/bookings/purchase`)
     .then(response => response.json())
     .then((bookings) => {
         visualiseBookings(bookings)
+        fetch(`http://localhost:3000/bookings/cart`)
+            .then(response => response.json())
+            .then((bookings) => {
+                console.log(bookings)
+                // Récupération du nombre d'artciles dans le panier
+                let counter = bookings.bookings.length
+                console.log(counter)
+                document.querySelector("#count").textContent = `${counter}`;
+            })
     })
 
 
+// Affichage des trajets Bookés 
 function visualiseBookings(bookings) {
 
     document.querySelector("#listOfBookings").innerHTML = '';
@@ -19,9 +27,9 @@ function visualiseBookings(bookings) {
 
             const datefmt = new Date(bookings.bookings[i].trip.date);
             let tripHour = `${datefmt.getHours()}h${(datefmt.getMinutes() < 10 ? '0' : '') + datefmt.getMinutes()}`;
-            let timeRemaining = new Date(new Date() - datefmt).getHours()
-            let departure = bookings.bookings[i].departure
-            let arrival = bookings.bookings[i].arrival
+            let timeRemaining = new Date(datefmt - new Date()).getHours()
+            let departure = bookings.bookings[i].trip.departure
+            let arrival = bookings.bookings[i].trip.arrival
 
             document.querySelector("#listOfBookings").innerHTML += `
             <div id="booking-card">
@@ -46,7 +54,7 @@ function visualiseBookings(bookings) {
                         </div>
 
                         <div id="date-container">
-                            <p>at ${tripHour}</p>
+                            <p> ${datefmt.getDate()}/${datefmt.getMonth() + 1}/${datefmt.getFullYear()} at ${tripHour}</p>
                             <p>Departure in ${timeRemaining} hours</p>
                         </div>
 

@@ -1,8 +1,16 @@
-// Récupération des données saisies 
+// Récupération du nombre d'artciles dans le panier
+fetch(`http://localhost:3000/bookings/cart`)
+    .then(response => response.json())
+    .then((bookings) => {
+        console.log(bookings)
+        // Récupération du nombre d'artciles dans le panier
+        let counter = bookings.bookings.length
+        console.log(counter)
+        document.querySelector("#count").textContent = `${counter}`;
+    })
+// Ajout des trains selectionnés 
 
 let pressSearchButton = document.querySelector("#search-button")
-
-// Ajout des trains selectionnés 
 
 pressSearchButton.addEventListener('click', () => {
 
@@ -53,16 +61,8 @@ function addTripToCart(trips) {
 
     for (let i = 0; i < document.querySelectorAll('.book-button').length; i++) {
         document.querySelectorAll('.book-button')[i].addEventListener('click', () => {
-            let counter = document.querySelector('#count').textContent;
-            counter++;
-            if (counter === 0) {
-                document.querySelector("#count").style.backgroundColor = 'white';
-            } else {
-                document.querySelector('#count').innerHTML += `
-                ${counter}
-                `
-            }
-            document.querySelector('#count').textContent = String(counter);
+
+            //document.querySelector('#count').textContent = String(counter);
 
             fetch(`http://localhost:3000/trips/${trips.trips[i]._id}`, {
                 method: "POST",

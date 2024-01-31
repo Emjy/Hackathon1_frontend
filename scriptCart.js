@@ -1,8 +1,4 @@
-// Récupération des données trips dans le panier
-
-let pressCart = document.querySelector("#cartPage");
-
-// Ajout des trips selectionnés 
+// Ajout des trips selectionnés dans le panier
 
 fetch(`http://localhost:3000/bookings/cart`)
         .then(response => response.json())
@@ -10,6 +6,7 @@ fetch(`http://localhost:3000/bookings/cart`)
             console.log(bookings)
             visualiseCart(bookings);
             upDeleteCart(bookings);
+            purchaseCartTrips(bookings)
         })
 
 function visualiseCart(bookings) {
@@ -17,6 +14,13 @@ function visualiseCart(bookings) {
     console.log(bookings.result)
     if (bookings.result) {
         let sum = 0;
+
+        // Récupération du nombre d'artciles dans le panier
+        let counter = bookings.bookings.length
+        console.log(counter)
+        document.querySelector("#count").textContent = `${counter}`;
+ 
+
         for (let i in bookings.bookings) {
 
             console.log(bookings[i])
@@ -36,30 +40,54 @@ function visualiseCart(bookings) {
         document.querySelector("#basket-container").innerHTML += 
         `<div id="total-container">
             <h3>Total: ${sum} €</h3>
-            <button>Purcharse</button>
+            <button id="purchase-btn">Purchase</button>
         </div>`
     } else {
-        document.querySelector("#basket-container").innerHTML = `
-                <img class="train-img" src="./images/notfound.png" alt="train" />
-                <h6>No trip found</h6>
-            `;
+        document.querySelector("#basket-container").innerHTML = '';
     }
 }
- /*
+
 function upDeleteCart(bookings) {
     for (let i = 0; i < document.querySelectorAll('.button-close').length; i++) {
         document.querySelectorAll('.button-close')[i].addEventListener('click', function () {
-            fetch(`http://localhost:3000/bookings/updateCart/${this.bookings;booking[i].id}`, {
-                method: "PUT",
-                }),
+            fetch(`http://localhost:3000/bookings/updateCart/${bookings.bookings[i]._id}`, {
+                method: "PUT"
             })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.result) {
-                    console(data);
-                    this.parentNode.remove();
-                }
-            })
-        });
+                .then((response) => response.json())
+                .then((booking) => {
+                    console.log('Voyage enlevé du panier')
+                    location.reload()
+                })
+        })
     }
-    */
+}
+
+
+// Récupération des données trips dans le panier pour purchase
+
+function purchaseCartTrips(bookings) {
+    let pressPurchase = document.querySelector("#purchase-btn");
+
+    pressPurchase.addEventListener('click', () => {
+
+        for (let i in bookings.bookings) {
+
+            fetch(`http://localhost:3000/bookings/updatePurchase/${bookings.bookings[i]._id}`, {
+                method: "PUT"
+            })
+                .then(response => response.json())
+                .then((bookings) => {
+                    console.log('Bookings purchased', bookings)
+                    location.reload()
+                })
+
+        }
+
+
+    })
+
+
+}
+
+
+
