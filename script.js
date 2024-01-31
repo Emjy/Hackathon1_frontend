@@ -1,4 +1,3 @@
-// Récupération du nombre d'artciles dans le panier
 fetch(`http://localhost:3000/bookings/cart`)
     .then(response => response.json())
     .then((bookings) => {
@@ -8,7 +7,9 @@ fetch(`http://localhost:3000/bookings/cart`)
         console.log(counter)
         document.querySelector("#count").textContent = `${counter}`;
     })
+
 // Ajout des trains selectionnés 
+document.querySelector("#response").style.display = 'none'
 
 let pressSearchButton = document.querySelector("#search-button")
 
@@ -23,12 +24,14 @@ pressSearchButton.addEventListener('click', () => {
         .then((trips) => {
             visualiseTrips(trips)
             addTripToCart(trips)
+
         })
 });
 
 
 
 function visualiseTrips(trips) {
+
     document.querySelector("#response").innerHTML = '';
 
     console.log(trips.result)
@@ -46,13 +49,15 @@ function visualiseTrips(trips) {
                 <button class="book-button">Book</button>
                 </div>
                 `;
-
+            document.querySelector("#response").style.display = 'flex'
         }
     } else {
         document.querySelector("#response").innerHTML = `
                 <img class="train-img" src="./images/notfound.png" alt="train" />
                 <h6>No trip found</h6>
             `;
+
+        document.querySelector("#response").style.display = 'none'
     }
 }
 
@@ -71,6 +76,17 @@ function addTripToCart(trips) {
                 .then(response => response.json())
                 .then(() => {
                     console.log('Trip add to cart!')
+                    // Récupération du nombre d'artciles dans le panier
+                    fetch(`http://localhost:3000/bookings/cart`)
+                        .then(response => response.json())
+                        .then((bookings) => {
+                            console.log(bookings)
+                            // Récupération du nombre d'artciles dans le panier
+                            let counter = bookings.bookings.length
+                            console.log(counter)
+                            document.querySelector("#count").textContent = `${counter}`;
+                        })
+
                 })
         });
     }

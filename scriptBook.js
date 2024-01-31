@@ -34,10 +34,9 @@ function visualiseBookings(bookings) {
             document.querySelector("#listOfBookings").innerHTML += `
             <div id="booking-card">
 
-                    <div id="imgTravel"></div>
-
+                  <div id="imgTravel"><img class="imgTravelArrival" src="./images/${arrival}.jpg"/></div>
                     <div id="text-container-booking">
-                        <p class="">Your travel</p>
+                 
                         <div id="destination-container-booking">
 
                             <div class="label-city">
