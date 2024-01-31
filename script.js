@@ -53,15 +53,20 @@ function addTripToCart(trips) {
 
     for (let i = 0; i < document.querySelectorAll('.book-button').length; i++) {
         document.querySelectorAll('.book-button')[i].addEventListener('click', () => {
-            console.log("Button pressed")
-            console.log(trips.trips[i])
-
+            let counter = document.querySelector('#count').textContent;
+            counter ++;
+            if(counter === 0){
+                document.querySelector("#count").style.backgroundColor = 'white';
+            } else {
+                document.querySelector('#count').innerHTML += `
+                ${counter}
+                `
+            }
+            document.querySelector('#count').textContent = String(counter);
             fetch(`http://localhost:3000/trips/${trips.trips[i]._id}`)
                 .then(response => response.json())
                 .then(() => {
-                    console.log("Trip saved !!")
                 })
-
         });
     }
 

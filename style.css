@@ -59,7 +59,18 @@ HEADER ---- SETUP
     padding-right: 40px;
 }
 
+.nav-btn {
+    font-size: 18px;
+}
 
+#count {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    background-color: #E73F3F;
+    color: #E9F9EE;
+
+}
 
 /*
 
